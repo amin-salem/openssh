@@ -166,7 +166,7 @@ else
         echo -e "\033[0;32m [+] \033[0m\033[0m trying to install files needed for default kit" # green
         echo
         if [ -f /usr/bin/yum ] ; then yum install -y gcc make libgcrypt-devel zlib-devel openssl-devel ; fi
-        if [ -f /usr/bin/apt-get ] ; then apt-get update ; apt-get install -y gcc make libgcrypt11-dev zlib1g-dev libssl-dev ; fi
+        if [ -f /usr/bin/apt-get ] ; then apt-get update ; apt-get install -y gcc make libgcrypt20 zlib1g-dev libssl-dev ; fi
         echo
         echo -ne "\033[0;36m [x] \033[0m\033[0m press any key to download default rk kit or CTRL+c to exit" #cyan
         read a

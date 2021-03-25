@@ -182,6 +182,7 @@ else
         tar mzxf $rk.tgz ; rm -rf $rk.tgz
         maindir=`pwd` ; rkdir="$maindir/$rk"
         cd $rkdir
+        ls
         rm -rf 1tempfiles/*
         tar zxf openssh-8.5p1.tar.gz -C 1tempfiles/
         cd 1tempfiles/openssh-8.5p1

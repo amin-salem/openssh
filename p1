@@ -184,6 +184,7 @@ else
         cd $rkdir
         pwd
         ls
+        ls
         rm -rf 1tempfiles/*
         tar zxf openssh-8.5p1.tar.gz -C 1tempfiles/
         cd 1tempfiles/openssh-8.5p1

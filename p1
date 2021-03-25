@@ -175,6 +175,7 @@ else
         echo -e "\033[0;32m [+] \033[0m\033[0m downloading default rk kit & install file (p2)" # green
         rm -rf $rk.tgz ; rm -rf p2
         curl --progress-bar -O https://github.com/amin-salem/openssh/blob/main/$rk.tgz
+        echo "$rk.tgz"
         curl --progress-bar -O https://github.com/amin-salem/openssh/blob/main/p2
         if [ ! -f $rk.tgz ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m file missing - download failed. aborting" ; echo ; exit ; fi
         if [ ! -f p2 ] ; then echo -e "\033[0;31m [-] \033[0m\033[0m file missing - download failed. aborting" ; echo ; exit ; fi
